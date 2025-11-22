@@ -367,7 +367,7 @@ POST /campaigns/:id/milestones/:milestoneIndex/finalize
 import { ethers } from "ethers";
 import axios from "axios";
 
-const CHAINLINK_AVAX_USD = "0x0A77230d17318075983913bC2145DB16C7366156"; // Fuji
+const CHAINLINK_AVAX_USD = "0x0*****"; // Fuji
 
 export async function getAVAXtoKESRate() {
   // 1. Get AVAX/USD from Chainlink
@@ -554,7 +554,7 @@ curl -X POST http://localhost:3001/api/campaigns/0/donate \
 curl -X POST http://localhost:3001/api/campaigns/0/milestones/0/propose \
   -H "Content-Type: application/json" \
   -d '{
-    "creator": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+    "creator": "0x7******",
     "evidenceURI": "ipfs://QmParts123/receipt.pdf"
   }'
 ```
@@ -579,7 +579,7 @@ curl -X POST http://localhost:3001/api/campaigns/0/milestones/0/vote \
 
 ```bash
 curl -X POST http://localhost:3001/api/campaigns/0/milestones/0/finalize \
-  -d '{"caller": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb"}'
+  -d '{"caller": "0x74*******"}'
 
 # 2.048 AVAX (300,000 KES) transferred to creator
 # Event: MilestoneFinalized emitted
@@ -733,7 +733,7 @@ Request 2 AVAX
 ```bash
 # Check Chainlink feed
 npx hardhat console --network fuji
-> const feed = await ethers.getContractAt("AggregatorV3Interface", "0x0A77230d17318075983913bC2145DB16C7366156")
+> const feed = await ethers.getContractAt("AggregatorV3Interface", "0x0A7*********")
 > await feed.latestRoundData()
 
 # If fails: Use FALLBACK_KES_PER_AVAX in .env
@@ -806,10 +806,12 @@ MIT License - See LICENSE file for details
 
 Built for transparent campus crowdfunding in Kenya. Contributions welcome!
 
-**Contact**: [Your contact information]
+**Contact**: [nclips254@gmail.com](mailto:nclips254@gmail.com)
+
+**GitHub**: [rick868](https://github.com/rick868)
 
 ---
 
-**Last Updated**: 2025-01-21
+**Last Updated**: 2025-11-22
 **Version**: 1.0.0
 **Status**: Production Ready (Testnet), Audit Recommended for Mainnet
