@@ -180,6 +180,13 @@ contract CrowdfundingEscrow is ReentrancyGuard, Ownable {
         );
         require(_milestoneDescriptions.length > 0, "At least one milestone required");
         
+        // Calculate total milestone amounts
+        uint256 totalMilestoneAVAX = 0;
+        for (uint256 i = 0; i < _milestoneAmountsAVAX.length; i++) {
+            totalMilestoneAVAX += _milestoneAmountsAVAX[i];
+        }
+        require(totalMilestoneAVAX <= _goalAVAX, "Total milestone amounts cannot exceed campaign goal");
+        
         uint256 campaignId = campaignCounter++;
         Campaign storage campaign = campaigns[campaignId];
         
